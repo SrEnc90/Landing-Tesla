@@ -1,0 +1,33 @@
+---
+const { color, title, subtitle } = Astro.props;
+const textColor = `text-${color}`
+---
+
+<section class="landing-section relative h-screen text-center"
+    data-header-color={color}
+>
+
+    <div class="relative z-30 flex flex-col h-full">
+        <header class="" id="landingHeader">
+            <h2 class={`${textColor} text-[40px] font-medium
+            pt-40`}>{title}</h2>
+            <p class={`${textColor} text-sm`}>
+                {subtitle}
+            </p>
+        </header>
+
+        <footer class="flex flex-col justify-end flex-grow pb-20">
+            <slot name="footer" />
+            <!-- <div>
+                <a class={`${textColor} border-[3px] border-white rounded px-12 py-2 text-sm font-medium inline-block bg-white/5 backdrop-blur-sm hover:bg-white hover:text-black transition-colors`} href="/">
+                    Prueba de conducción
+                </a>
+            </div> -->
+        </footer>
+    </div>
+
+    <div class="absolute top-0 bottom-0 w-full h-full">
+        <slot name="background"/>
+        <!-- <video class="object-cover object-center w-full h-full" autoplay muted loop src="/videoTesla.webm"></video> -->
+    </div>
+</section>
